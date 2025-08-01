@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simple Harmonic Motion Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Simple Harmonic Motion Simulator</h1>
+    <p>Explore the behavior of a mass-spring system in real time</p>
+  </header>
+  <div id="container">
+    <div id="canvas-container">
+      <div id="stats-panel"></div>
+      <button id="infoToggle">ℹ️ Explanation</button>
+    </div>
+    <div id="control-panel">
+      <h2>Controls</h2>
+
+      <div class="control-group">
+        <label for="massSlider">Mass (kg)</label>
+        <input type="range" id="massSlider" min="0.5" max="5" step="0.1" value="1">
+        <span id="massValue">1 kg</span>
+      </div>
+
+      <div class="control-group">
+        <label for="kSlider">Spring Constant (N/m)</label>
+        <input type="range" id="kSlider" min="10" max="200" step="1" value="50">
+        <span id="kValue">50 N/m</span>
+      </div>
+
+      <div class="control-group">
+        <label>
+          <input type="checkbox" id="slowmoCheckbox">
+          Slow Motion
+        </label>
+      </div>
+
+      <div class="button-group">
+        <button id="startBtn">Start</button>
+        <button id="resetBtn">Reset</button>
+        <span class="hint">Press <strong>SPACE</strong> to pause/unpause</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="infoPanel" class="hidden">
+    <button id="infoClose">❌</button>
+    <h2>Simple Harmonic Motion (SHM)</h2>
+    <p><strong>Simple Harmonic Motion (SHM)</strong> is a type of oscillatory motion where the restoring force is directly proportional to the displacement from the equilibrium position. A classic example is a mass attached to a spring.</p>
+    <h3>1. Restoring Force</h3>
+    <p>The spring exerts a restoring force described by Hooke's Law: <code>F = -kx</code></p>
+    <ul>
+      <li><code>F</code> is the force exerted by the spring,</li>
+      <li><code>k</code> is the spring constant,</li>
+      <li><code>x</code> is the displacement from equilibrium.</li>
+    </ul>
+    <h3>2. Equations of Motion</h3>
+    <p>SHM follows: <code>a = -(k/m)x</code> → <code>x(t) = A cos(ωt + φ)</code> where <code>ω = √(k/m)</code></p>
+    <h3>3. Energy in SHM</h3>
+    <ul>
+      <li><strong>Kinetic Energy:</strong> ½ mv²</li>
+      <li><strong>Potential Energy:</strong> ½ kx²</li>
+      <li><strong>Total Energy:</strong> remains constant in ideal (undamped) system</li>
+    </ul>
+  </div>
+
+  <script src="sketch.js"></script>
+</body>
+</html>
